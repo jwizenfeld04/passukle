@@ -6,6 +6,7 @@ import { Header } from "./components/header";
 import { PasukDisplay } from "./components/pasukDisplay";
 import ParshaList from "./parsha-list.txt";
 import { PrevGuessList } from "./components/prevGuessLIst";
+import { ShowAnswerModal } from "./components/showAnswerModal";
 
 export const PassukGuesser = () => {
   const [pesukimData, setPesukimData] = useState([]);
@@ -46,6 +47,12 @@ export const PassukGuesser = () => {
     fetchPesukimData();
     fetchParshaList();
   }, []);
+
+  useEffect(() => {
+    if (guessCounter > 4) {
+      setShowAnswer(true);
+    }
+  }, [guessCounter]);
 
   const onPassukClick = () => {
     setShowAnswer(false);
@@ -142,6 +149,12 @@ export const PassukGuesser = () => {
           passukText={passukText}
           correctGuess={correctGuess}
           guessCounter={guessCounter}
+        />
+        <ShowAnswerModal
+          showAnswer={showAnswer}
+          onClose={onPassukClick}
+          passuk={passuk}
+          passukText={passukText}
         />
       </div>
       {/* <button onClick={() => setShowAnswer(true)}>Show Answer</button> */}
