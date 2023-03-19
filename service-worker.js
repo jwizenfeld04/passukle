@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/passukle/precache-manifest.04d90afb76e39fcf8a9465e34a9f9d58.js"
+  "/passukle/precache-manifest.ad56d29db19a7769812f17e613e5062c.js"
 );
 
 workbox.clientsClaim();
